@@ -1,126 +1,76 @@
-# US Flight Delay Analysis — DVA Capstone 2
+# ✈️ US Aviation Performance Analysis (2015)
+[![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Data-Pandas-150458?logo=pandas)](https://pandas.pydata.org/)
+[![Tableau](https://img.shields.io/badge/Visuals-Tableau-E97627?logo=tableau)](https://public.tableau.com/)
 
-**Sector:** Aviation / Transportation  
-**Dataset:** US Flight Delays 2015 (Bureau of Transportation Statistics)  
-**Objective:** Analyze root causes of US domestic flight delays and provide actionable recommendations to improve on-time performance.
-
----
-
-## 📋 Problem Statement
-
-US domestic airlines operated nearly **5.8 million flights** in 2015. Flight delays cost the aviation industry an estimated **$28 billion annually** in operational costs, passenger compensation, and lost productivity. This project analyzes the full 2015 flight operations dataset to identify:
-
-1. **Which airlines and airports are most delay-prone?**
-2. **What are the primary root causes of delays?**
-3. **When do delays peak (by month, day, hour)?**
-4. **What operational interventions can reduce delays?**
-
-The analysis supports decision-making for airline operations managers and aviation regulators.
+## 📝 Executive Summary
+**Project Objective:** Can we predict and reduce US flight delays through systemic data engineering?  
+This repository hosts a high-fidelity **Aviation ETL Pipeline** and **Strategic Ops Dashboard**. By analyzing 5.8M rows of Bureau of Transportation Statistics (BTS) data, we identify carrier bottlenecks, seasonal delay profiles, and operational interventions to improve on-time performance.
 
 ---
 
-## 📂 Repository Structure
+## 🏗 Industrial Data Architecture
+The pipeline is designed for horizontal scalability and reproducibility.
 
+```mermaid
+graph LR
+    A[Raw Data] --> B[ETL Script]
+    B --> C[Processed Data]
+    C --> D[Statistical Validation]
+    D --> E[Tableau Prep]
+    E --> F[Visual Dashboard]
 ```
-├── README.md                          ← You are here
-├── data/
-│   ├── raw/                           ← Original datasets (never edited)
-│   │   ├── airlines.csv
-│   │   ├── airports.csv
-│   │   └── flights.csv
-│   └── processed/                     ← Cleaned output from pipeline
-│       ├── flights_cleaned.csv
-│       ├── airlines_cleaned.csv
-│       ├── airports_cleaned.csv
-│       └── tableau/                   ← Aggregated datasets for Tableau
+
+---
+
+## 📂 Detailed Repository Structure
+
+```text
 ├── notebooks/
-│   ├── 01_extraction.ipynb            ← Data loading & quality assessment
-│   ├── 02_cleaning.ipynb              ← ETL pipeline (cleaning & transformation)
-│   ├── 03_eda.ipynb                   ← Exploratory Data Analysis
-│   ├── 04_statistical_analysis.ipynb  ← Hypothesis testing & regression
-│   └── 05_final_load_prep.ipynb       ← Tableau-ready dataset preparation
+│   ├── 01_extraction.ipynb         # Data ingestion and raw schema assessment
+│   ├── 02_cleaning.ipynb           # Main ETL pipeline: formatting, imputation, and outlier audit
+│   ├── 03_eda.ipynb                # Strategic analysis of delay trends and carrier benchmarks
+│   ├── 04_statistical_analysis.ipynb # Hypothesis testing and statistical validation of insights
+│   └── 05_final_load_prep.ipynb    # Final joins and denormalization for BI usage
 ├── scripts/
-│   └── etl_pipeline.py                ← Consolidated ETL script
+│   ├── etl_pipeline.py             # Automates the extraction and cleaning process (Production)
+│   ├── sample_dataset.py           # Downsamples 5.8M rows to 100k for performance/IDE stability
+│   └── tableau_prep.py             # Generates pre-aggregated CSVs for fast Tableau loading
+├── data/
+│   ├── raw/                        # Original Source Data (Airlines, Airports, 100k Flight Sample)
+│   ├── processed/                  # Validated outputs from the cleaning pipeline
+│   └── processed/tableau/          # High-performance aggregates ready for Dashboard import
+├── docs/
+│   └── data_dictionary.md          # Visual data lineage and detailed column definitions
 ├── tableau/
-│   ├── screenshots/                   ← Dashboard screenshots
-│   └── dashboard_links.md            ← Tableau Public URL
-├── reports/
-│   ├── project_report.pdf            ← Final project report
-│   └── presentation.pdf              ← Presentation deck
-└── docs/
-    └── data_dictionary.md            ← Column definitions & KPIs
+│   └── dashboard_links.md          # Storage for live project URLs and dashboard screenshots
+└── README.md                       # This executive summary
 ```
 
 ---
 
-## 📊 Dataset Overview
-
-| File | Rows | Columns | Description |
-|------|------|---------|-------------|
-| `airlines.csv` | 14 | 2 | Airline names and IATA codes |
-| `airports.csv` | 322 | 7 | Airport details with coordinates |
-| `flights.csv` | 5,819,079 | 31 | Flight-level records for all 2015 US domestic flights |
-
-**Source:** Bureau of Transportation Statistics (BTS)
+## 🚀 Quick Start (One-Click Pipeline)
+1.  **Clone the Repo**: `git clone https://github.com/adamyatiwari12/SectionD_G19_FlightOps-Dashboard.git`
+2.  **Run ETL**: `python3 scripts/etl_pipeline.py` (Converts raw CSVs to cleaned assets).
+3.  **Prepare for BI**: `python3 scripts/tableau_prep.py` (Generates aggregated Tableau CSVs).
 
 ---
 
-## 🔑 Key Performance Indicators (KPIs)
-
-| KPI | Definition |
-|-----|-----------|
-| On-Time Performance Rate | % of flights arriving within 15 minutes of schedule |
-| Average Arrival Delay | Mean delay in minutes for non-cancelled flights |
-| Cancellation Rate | % of total flights that were cancelled |
-| Primary Delay Cause | Most common delay type (Airline, Weather, NAS, etc.) |
+## 📊 Standard KPI Framework
+*   **OTP (On-Time Performance)**: Arrival Delay ≤ 15 minutes.
+*   **D-Delay & A-Delay**: Variance between departure and arrival timelines.
+*   **Cancellation Tiers**: Root-cause categorization (Carrier, Weather, NAS, Security).
 
 ---
 
-## 🛠 Tech Stack
-
-| Tool | Purpose |
-|------|---------|
-| Python (Pandas, NumPy) | ETL pipeline, data cleaning |
-| Matplotlib, Seaborn | EDA visualizations |
-| SciPy, Statsmodels | Statistical analysis |
-| Tableau Public | Interactive dashboard |
-| GitHub | Version control & collaboration |
+## 👤 Team Group-19 (Section D)
+| Role | Member |
+| :--- | :--- |
+| **Project Lead** | [Placeholder] |
+| **ETL Engineer** | [Placeholder] |
+| **Data Scientist** | [Placeholder] |
+| **BI Developer** | [Placeholder] |
 
 ---
-
-## 🚀 How to Run
-
-### 1. Run ETL Pipeline
-```bash
-python scripts/etl_pipeline.py
-```
-
-### 2. Run Notebooks
-Open in Jupyter Notebook or Google Colab and run in order:
-```
-01_extraction.ipynb → 02_cleaning.ipynb → 03_eda.ipynb → 04_statistical_analysis.ipynb → 05_final_load_prep.ipynb
-```
-
-### 3. Tableau Dashboard
-- Tableau Public URL: *(to be added after publishing)*
-- Screenshots available in `tableau/screenshots/`
-
----
-
-## 👥 Team
-
-| Role | Team Member | GitHub Username |
-|------|------------|-----------------|
-| Project Lead | | |
-| Data Lead | | |
-| ETL Lead | | |
-| Analysis Lead | | |
-| Visualization Lead | | |
-| Strategy Lead | | |
-| PPT & Quality Lead | | |
-
----
-
-## 📄 License
-
-This project is part of the DVA Capstone 2 program at Newton School of Technology.
+**Institutional Sponsor:** Newton School of Technology  
+**Program:** DVA Capstone 2 Simulation
