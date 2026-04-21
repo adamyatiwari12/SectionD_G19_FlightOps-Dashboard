@@ -1,6 +1,7 @@
-# Data
-data/
-*.csv
+# Data (Allowing 100k sampled data, excluding original 5.8M backups)
+# data/
+# *.csv
+*.bak
 *.xlsx
 *.parquet
 
