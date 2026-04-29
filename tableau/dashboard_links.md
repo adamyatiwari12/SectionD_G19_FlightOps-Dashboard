@@ -1,29 +1,99 @@
-# Tableau Dashboard Links
+# ✈️ Tableau Dashboards — US Flight Delay Analysis (2015)
 
-## Published Dashboard
+## 🔗 Published Dashboards
 
-**Dashboard Title:** US Flight Delay Analysis — 2015
-
-**Tableau Public URL:** *(to be added after publishing)*
-
----
-
-## Dashboard Views
-
-### View 1 — Executive Summary
-- KPI scorecards (Total Flights, On-Time Rate, Avg Delay, Cancellation Rate)
-- Monthly delay trend line
-- Airline performance ranking
-
-### View 2 — Operational Drill-Down
-- Airport map with delay heat intensity
-- Day × Hour delay heatmap
-- Delay cause breakdown
-- Route performance table
+| Dashboard | Link |
+|----------|------|
+| Operations Overview | *https://public.tableau.com/views/OperationsDashboard_17774656392980/OperationsOverview?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link* |
+| Delay & Performance Analysis | *https://public.tableau.com/views/DelayDashboard_17774660273340/DelayAnalysis?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link* |
+| Route & Airport Analysis | *https://public.tableau.com/views/RouteAirportDashboard/RouteAirport?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link* |
+| Airline Performance Comparison | *https://public.tableau.com/views/AirlineDashboard_17774679517270/AIRLINECOMPARISON?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link* |
 
 ---
 
-## Data Sources Used
+## 📊 Project Overview
+
+This project analyzes US flight operations in 2015 through **four separate Tableau dashboards**, each focusing on a different aspect of airline performance — from high-level KPIs to deep operational insights.
+
+---
+
+## 🧭 Dashboard 1 — Operations Overview
+
+### 🎯 Purpose:
+Provides a **high-level snapshot** of overall flight operations.
+
+### Key Components:
+- KPI Scorecards:
+  - Total Flights  
+  - On-Time %  
+  - Avg Departure Delay  
+  - Cancellation Rate  
+
+- Monthly flight trends  
+- Delay distribution (Early, 0–15, 15–60, 60+)  
+- Flights by day of week  
+
+### 💡 Insight Focus:
+- Overall operational stability  
+- Frequency and distribution of delays  
+
+---
+
+## ⏱ Dashboard 2 — Delay & Performance Analysis
+
+### 🎯 Purpose:
+Analyzes **patterns and causes of delays**
+
+### Key Components:
+- Departure vs Arrival delay (scatter plot)  
+- Delay by time of day  
+- Delay cause breakdown:
+  - Airline  
+  - Weather  
+  - Air System  
+  - Late Aircraft  
+
+### 💡 Insight Focus:
+- How delays propagate  
+- Root causes of delays  
+
+---
+
+## 🌍 Dashboard 3 — Route & Airport Analysis
+
+### 🎯 Purpose:
+Examines **geographic and route-level performance**
+
+### Key Components:
+- Airport map (flight density)  
+- Top routes by traffic  
+- Avg delay by airport  
+
+### 💡 Insight Focus:
+- Busiest airports and hubs  
+- High-traffic routes  
+- Delay bottlenecks  
+
+---
+
+## 🏢 Dashboard 4 — Airline Performance Comparison
+
+### 🎯 Purpose:
+Compares airlines across key performance metrics
+
+### Key Components:
+- On-Time % by airline  
+- Avg delay by airline  
+- Cancellation rate  
+- Flight volume  
+
+### 💡 Insight Focus:
+- Best and worst performing airlines  
+- Trade-off between volume and efficiency  
+
+---
+
+## 🗂 Data Sources Used
 
 | Tableau Data Source | File |
 |---|---|
@@ -37,6 +107,15 @@
 
 ---
 
-## Screenshots
+## 🖼 Screenshots
 
-Screenshots of the published dashboard are available in `tableau/screenshots/`.
+Screenshots of the dashboards are available in:  
+`tableau/screenshots/`
+
+---
+
+## 💡 Notes
+
+- Each dashboard is designed as a **standalone analytical view**  
+- Together, they form a **complete analysis pipeline**:
+  - Overview → Delay Analysis → Geographic Insights → Airline Comparison  
